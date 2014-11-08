@@ -1,1 +1,14 @@
 /* Empty. Add your own CSS if you like */
+.title a{
+  text-decoration: none;
+}
+
+
+
+.friend{
+  width: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}

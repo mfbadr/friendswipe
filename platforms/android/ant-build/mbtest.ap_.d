@@ -29,6 +29,7 @@
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/_where-is-www.txt \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www \
+/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/assets \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/cordova.js \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/cordova_plugins.js \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/css \
@@ -38,6 +39,9 @@
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/lib \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/plugins \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates \
+/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/assets/logo.png \
+/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/assets/reconnect_btn-01.png \
+/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/assets/unfollow_btn-01.png \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/css/style.css \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/img/ionic.png \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/js/app.js \
