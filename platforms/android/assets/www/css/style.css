@@ -16,11 +16,21 @@
 }
 
 .unfollow, .reconnect{
-  max-width: 50px;
+  max-width: 120px;
   height: auto;
 }
 
 .logo img{
   max-height: 35px;
   width: auto;
+}
+
+.unfollow{
+  float: left;
+  margin-left: 25px;
+}
+
+.reconnect{
+  float: right;
+  margin-right: 25px;
 }
