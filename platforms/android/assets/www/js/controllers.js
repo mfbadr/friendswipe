@@ -15,4 +15,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope){
+})
+
+.controller('SwipeCtrl', function($scope){
+})
+
+.controller('MatchCtrl', function($scope){
+})
+
+.controller('MenuCtrl', function($scope){
 });

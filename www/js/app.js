@@ -31,55 +31,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-    // setup an abstract state for the tabs directive
-    .state('tab',{
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
+    //Menu state
+    .state('menu',{
+      url: '/menu',
+      templateUrl: 'templates/menu.html',
+      controller: 'MenuCtrl'
     })
 
-    // Each tab has its own nav history stack:
-
-    .state('tab.dash',{
-      url: '/dash',
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
-        }
-      }
+    .state('swipe',{
+      url: '/swipe',
+      templateUrl: 'templates/swipe.html',
+      controller: 'SwipeCtrl'
     })
-
-    .state('tab.friends',{
-      url: '/friends',
-      views: {
-        'tab-friends':{
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    })
-    .state('tab.friend-detail',{
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends':{
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
-        }
-      }
-    })
-
-    .state('tab.account',{
-      url: '/account',
-      views: {
-        'tab-account':{
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
-        }
-      }
+    .state('match',{
+      url: '/match',
+      templateUrl: 'templates/match.html',
+      controller: 'MatchCtrl'
     });
 
+    /*
+    .state('header.swipe',{
+      url: '/swipe',
+      templateUrl: 'templates/swipe.html',
+      controller: 'SwipeCtrl'
+      views: {
+        'header-swipe': {
+          templateUrl: 'templates/swipe.html',
+          controller: 'SwipeCtrl'
+        }
+      }
+    })
+    */
+     //*******************************
+    ///********************************
+
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/menu');
 
 });
