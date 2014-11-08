@@ -1,18 +1,10 @@
-angular.module('starter.controllers', [])
+angular.module('friendswipe.controllers', [])
 
-.controller('DashCtrl', function($scope){
+.controller('SwipeCtrl', function($scope){
 })
 
-.controller('FriendsCtrl', function($scope, Friends){
-  'use strict';
-  $scope.friends = Friends.all();
-
+.controller('MatchCtrl', function($scope){
 })
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends){
-  'use strict';
-  $scope.friend = Friends.get($stateParams.friendId);
-})
-
-.controller('AccountCtrl', function($scope){
+.controller('MenuCtrl', function($scope){
 });

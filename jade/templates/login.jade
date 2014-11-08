@@ -1,0 +1,10 @@
+ion-view(title='Login', hide-back-button='true', style='background: #1b5a83', hide-nav-bar='true')
+  ion-header-bar.bar-stable
+    h1.title FriendSwipe
+  ion-content.padding
+    .list.list-inset(style='background: #1b5a83')
+      .item.item-image(style='border:none;margin-top:50px;')
+        img(src='img/sociogram.jpg')
+      button.button.button-block.button-light(ng-click='facebookLogin()')
+        i.icon.ion-social-facebook
+        | &nbsp;Login with Facebook

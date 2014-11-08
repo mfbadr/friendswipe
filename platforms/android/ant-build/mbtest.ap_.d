@@ -117,9 +117,7 @@
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/plugins/com.ionic.keyboard/www/keyboard.js \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
-/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/friend-detail.html \
-/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/tab-account.html \
-/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/tab-dash.html \
-/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/tab-friends.html \
-/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/tabs.html \
+/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/match.html \
+/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/menu.html \
+/Users/mikeybadr/Documents/Code/friendswipe/platforms/android/assets/www/templates/swipe.html \
 /Users/mikeybadr/Documents/Code/friendswipe/platforms/android/ant-build/AndroidManifest.xml \
