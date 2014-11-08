@@ -1,71 +1,90 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('friendswipe', ['ionic', 'friendswipe.controllers', 'friendswipe.services'])
-
-.run(function($ionicPlatform){
+(function(){
   'use strict';
-  $ionicPlatform.ready(function(){
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar){
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
+  angular.module('friendswipe', ['ionic', 'openfb', 'friendswipe.controllers', 'friendswipe.services'])
 
-.config(function($stateProvider, $urlRouterProvider){
-  'use strict';
+  .run(function($rootScope, $state, $ionicPlatform, $window, OpenFB){
+    OpenFB.init('800505460012061', 'http://localhost:8100/oauthcallback.html');
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-
-    //Menu state
-    .state('menu',{
-      url: '/menu',
-      templateUrl: 'templates/menu.html',
-      controller: 'MenuCtrl'
-    })
-
-    .state('swipe',{
-      url: '/swipe',
-      templateUrl: 'templates/swipe.html',
-      controller: 'SwipeCtrl'
-    })
-    .state('match',{
-      url: '/match',
-      templateUrl: 'templates/match.html',
-      controller: 'MatchCtrl'
+    $ionicPlatform.ready(function(){
+      if(window.cordova && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      }
+      if(window.StatusBar){
+        StatusBar.styleDefault();
+      }
     });
 
-    /*
-    .state('header.swipe',{
-      url: '/swipe',
-      templateUrl: 'templates/swipe.html',
-      controller: 'SwipeCtrl'
-      views: {
-        'header-swipe': {
-          templateUrl: 'templates/swipe.html',
-          controller: 'SwipeCtrl'
+    $rootScope.$on('$stateChangeStart', function(event, toState){
+      if(toState.name !== 'login' && toState.name !== 'logout' && !$window.sessionStorage.fbtoken){
+        $state.go('login');
+          event.preventDefault();
         }
-      }
-    })
-    */
-     //*******************************
-    ///********************************
+    });
 
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/menu');
+    $rootScope.$on('OAuthException', function(){
+      $state.go('login');
+    });
 
-});
+  })
+
+  .config(function($stateProvider, $urlRouterProvider){
+    $stateProvider
+
+      //Menu state
+      .state('init',{
+        url: '/init',
+        templateUrl: 'templates/init.html',
+        controller: 'AppCtrl'
+      })
+
+      .state('menu',{
+        url: '/menu',
+        templateUrl: 'templates/menu.html',
+        controller: 'MenuCtrl'
+      })
+
+      .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+      })
+
+      .state('logout', {
+        url: '/logout',
+        templateUrl: 'templates/logout.html',
+        controller: 'LogoutCtrl'
+      })
+
+      .state('swipe',{
+        url: '/swipe',
+        templateUrl: 'templates/swipe.html',
+        controller: 'SwipeCtrl'
+      })
+
+      .state('match',{
+        url: '/match',
+        templateUrl: 'templates/match.html',
+        controller: 'MatchCtrl'
+      });
+
+      /*
+      .state('header.swipe',{
+        url: '/swipe',
+        templateUrl: 'templates/swipe.html',
+        controller: 'SwipeCtrl'
+        views: {
+          'header-swipe': {
+            templateUrl: 'templates/swipe.html',
+            controller: 'SwipeCtrl'
+          }
+        }
+      })
+      */
+       //*******************************
+      ///********************************
+
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/menu');
+  });
+
+})();
