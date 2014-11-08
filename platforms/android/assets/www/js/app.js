@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('friendswipe', ['ionic', 'friendswipe.controllers', 'friendswipe.services'])
 
 .run(function($ionicPlatform){
   'use strict';
@@ -38,12 +38,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       controller: 'MenuCtrl'
     })
 
-    .state('header',{
-      url: '/header',
-      abstract: true,
-      templateUrl: 'templates/header.html'
-    })
-
     .state('swipe',{
       url: '/swipe',
       templateUrl: 'templates/swipe.html',
@@ -53,7 +47,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/match',
       templateUrl: 'templates/match.html',
       controller: 'MatchCtrl'
-    })
+    });
 
     /*
     .state('header.swipe',{
@@ -69,52 +63,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
     */
      //*******************************
-    .state('tab',{
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
-    })
-
-    // Each tab has its own nav history stack:
-
-    .state('tab.dash',{
-      url: '/dash',
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
-        }
-      }
-    })
-
-    .state('tab.friends',{
-      url: '/friends',
-      views: {
-        'tab-friends':{
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    })
-    .state('tab.friend-detail',{
-      url: '/friend/:friendId',
-      views: {
-        'tab-friends':{
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
-        }
-      }
-    })
-
-    .state('tab.account',{
-      url: '/account',
-      views: {
-        'tab-account':{
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
-        }
-      }
-    });
     ///********************************
 
   // if none of the above states are matched, use this as the fallback
