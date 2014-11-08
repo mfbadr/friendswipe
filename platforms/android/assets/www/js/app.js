@@ -31,7 +31,44 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
-    // setup an abstract state for the tabs directive
+    //Menu state
+    .state('menu',{
+      url: '/menu',
+      templateUrl: 'templates/menu.html',
+      controller: 'MenuCtrl'
+    })
+
+    .state('header',{
+      url: '/header',
+      abstract: true,
+      templateUrl: 'templates/header.html'
+    })
+
+    .state('swipe',{
+      url: '/swipe',
+      templateUrl: 'templates/swipe.html',
+      controller: 'SwipeCtrl'
+    })
+    .state('match',{
+      url: '/match',
+      templateUrl: 'templates/match.html',
+      controller: 'MatchCtrl'
+    })
+
+    /*
+    .state('header.swipe',{
+      url: '/swipe',
+      templateUrl: 'templates/swipe.html',
+      controller: 'SwipeCtrl'
+      views: {
+        'header-swipe': {
+          templateUrl: 'templates/swipe.html',
+          controller: 'SwipeCtrl'
+        }
+      }
+    })
+    */
+     //*******************************
     .state('tab',{
       url: '/tab',
       abstract: true,
@@ -78,8 +115,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     });
+    ///********************************
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/menu');
 
 });
