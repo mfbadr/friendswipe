@@ -3,7 +3,7 @@
   angular.module('friendswipe', ['ionic', 'openfb', 'friendswipe.controllers', 'friendswipe.services'])
 
   .run(function($rootScope, $state, $ionicPlatform, $window, OpenFB){
-    OpenFB.init('800505460012061', 'http://localhost:8100/oauthcallback.html');
+    OpenFB.init('800505460012061');
 
     $ionicPlatform.ready(function(){
       if(window.cordova && window.cordova.plugins.Keyboard) {
