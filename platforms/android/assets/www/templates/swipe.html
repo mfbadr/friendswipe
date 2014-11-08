@@ -2,12 +2,14 @@
 <ion-view title="Swipe">
   <ion-header-bar align-title="left" class="bar-stable">
     <h1 class="title"><a href="#/menu">FriendSwipe</a></h1>
-    <div class="buttons"><a href="#/match" class="button ion-arrow-swap"></a></div>
+    <div class="buttons"><a href="#/match" class="button logo"><img src="assets/logo.png"></a></div>
   </ion-header-bar>
   <ion-content ng-controller="SwipeCtrl" class="padding">
-    <div class="card friend">
-      <h3>Friends name here</h3>
-      <div class="size-96"><i style="font-size: 240px" class="ion-person"></i></div>
+    <div class="container">
+      <div class="card friend">
+        <div class="item item-divider">Friends Name</div><i style="font-size: 240px" class="ion-person"></i>
+      </div>
     </div>
+    <div class="buttonContainer"><img src="assets/unfollow_btn-01.png" class="unfollow"><img src="assets/reconnect_btn-01.png" class="reconnect"></div>
   </ion-content>
 </ion-view>
