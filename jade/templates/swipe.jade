@@ -1,8 +1,12 @@
 ion-view(title='Swipe')
-  ion-header-bar.bar-stable
-    h1.title FriendSwipe
+  ion-header-bar(align-title='left').bar-stable
+    h1.title: a(href='#/menu') FriendSwipe
+    .buttons
+      a.button.ion-arrow-swap(href='#/match')
   ion-content(ng-controller='SwipeCtrl').padding
-    h1 This is the swipe page
-    a(href='#/menu') Menu
-    br
-    a(href='#/match') Match
+    .container
+      .card.friend
+        .item.item-divider Friends Name
+          
+        i.ion-person(style='font-size: 240px')
+    
