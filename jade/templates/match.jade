@@ -1,6 +1,8 @@
 ion-view(title='Swipe')
-  ion-header-bar.bar-stable
+  ion-header-bar(align-title='left').bar-stable
     h1.title FriendSwipe
+    .buttons
+      a.button.ion-arrow-swap(href='#/swipe')
   ion-content(ng-controller='SwipeCtrl').padding
     h1 This is the match page
     a(href='#/menu') menu

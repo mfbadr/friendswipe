@@ -1,8 +1,15 @@
 ion-view(title='Menu')
-  ion-header-bar.bar-stable
+  ion-header-bar(align-title='left').bar-stable
     h1.title FriendSwipe
+    .buttons
+      button.buttons.ion-arrow-swap
   ion-content.padding
-    h1 Menu
-    a(href='#/swipe') swipe
+    h1 Welcome to FriendSwipe!
+    h5 Enhance your facebook experience one friend at a time!
+    h5 Swipe left to unfollow, they will never show up in your news feed.
+    h5 Swipe right to reconnect. You best friend from summer camp? Your high school crush?
+    h5 If there is a match, a message will be sent.
+    
+    a.button.button-full.button-positive(href='#/swipe') Get Started!
     br
     a(href='#/match') match

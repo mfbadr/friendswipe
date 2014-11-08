@@ -8,13 +8,13 @@
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
-    <name>mb-test</name>
+    <name>friendswipe</name>
     <description>
-        An Ionic Framework and Cordova project.
-    </description>
+    Maintain meaningful facebook connections
+  </description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
-    </author>
+      The Friendswipe Team
+  </author>
     <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
