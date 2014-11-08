@@ -5,11 +5,11 @@
     <div class="buttons"><a href="#/match" class="logo"><img src="assets/logo_background.png"></a></div>
   </ion-header-bar>
   <ion-content ng-controller="SwipeCtrl" class="padding">
-    <div class="container">
-      <div class="card friend">
+    <td-cards class="container">
+      <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" class="card friend">
         <div class="item item-divider">Friends Name</div><i style="font-size: 240px" class="ion-person"></i>
-      </div>
-    </div>
+      </td-card>
+    </td-cards>
     <div class="buttonContainer"><img src="assets/unfollow_btn-01.png" class="unfollow"><img src="assets/reconnect_btn-01.png" class="reconnect"></div>
   </ion-content>
 </ion-view>

@@ -4,8 +4,8 @@ ion-view(title='Swipe')
     .buttons
       a.logo(href='#/match'): img(src='assets/logo_background.png')
   ion-content(ng-controller='SwipeCtrl').padding
-    .container
-      .card.friend
+    td-cards.container
+      td-card.card.friend(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-swipe-left='cardSwipedLeft($index)', on-swipe-right='cardSwipedRight($index)')
         .item.item-divider Friends Name
         i.ion-person(style='font-size: 240px')
     .buttonContainer

@@ -16,13 +16,15 @@
 
     $rootScope.$on('$stateChangeStart', function(event, toState){
       if(toState.name !== 'login' && toState.name !== 'logout' && !$window.sessionStorage.fbtoken){
-        $state.go('login');
+        $state.go('menu');
+          //change to login
           event.preventDefault();
         }
     });
 
     $rootScope.$on('OAuthException', function(){
-      $state.go('login');
+          //change to login
+      $state.go('menu');
     });
 
   })
