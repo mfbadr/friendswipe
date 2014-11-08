@@ -16,13 +16,13 @@
 
     $scope.logout = function(){
       OpenFB.logout();
-      $state.go('app.login');
+      $state.go('login');
     };
 
     $scope.revokePermissions = function(){
       OpenFB.revokePermissions().then(
         function(){
-          $state.go('app.login');
+          $state.go('login');
         },
         function(){
           alert('Revoke permissions failed');
@@ -35,7 +35,7 @@
     $scope.facebookLogin = function(){
       OpenFB.login('email,read_stream,publish_stream').then(
         function(){
-          $location.path('/app/person/me/feed');
+          $location.path('/menu');
         },
         function(){
           alert('OpenFB login failed');
