@@ -2,11 +2,13 @@ ion-view(title='Swipe')
   ion-header-bar(align-title='left').bar-stable
     h1.title: a(href='#/menu') FriendSwipe
     .buttons
-      a.button.ion-arrow-swap(href='#/match')
+      a.logo(href='#/match'): img(src='assets/logo.png')
   ion-content(ng-controller='SwipeCtrl').padding
     .container
       .card.friend
         .item.item-divider Friends Name
-          
         i.ion-person(style='font-size: 240px')
+    .buttonContainer
+      img.unfollow(src='assets/unfollow_btn-01.png')
+      img.reconnect(src='assets/reconnect_btn-01.png')
     
