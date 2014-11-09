@@ -6,9 +6,8 @@
   </ion-header-bar>
   <ion-content ng-controller="MatchCtrl" class="padding">
     <ion-list>
-      <ion-item ng-repeat="match in matches">
-         
-        {{match.name}}
+      <ion-item ng-repeat="match in matches"> 
+        <p>{{match.name}}</p>
       </ion-item>
     </ion-list>
   </ion-content>
