@@ -98,6 +98,7 @@
 
     $scope.cardSwipedRight = function(index){
       console.log('RIGHT SWIPE');
+      $http.post('http://friendswipe-php.herokuapp.com/?swipe&choice=reconnect&sender='+$rootScope.myFacebookId+'&recipient='+$rootScope.fbFriendsArray[index].id).then(function(data){console.log(data);});
     };
 
   })
