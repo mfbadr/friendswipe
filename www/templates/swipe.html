@@ -11,9 +11,10 @@
         <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" ng-controller="CardCtrl" class="friend card-{{card.index}}">
           <div class="image">
             <!--.yes-text(ng-style='leftTextOpacity') LIKE-->
-            <div class="item item-divider">Friends Name</div><i style="font-size: 240px" class="ion-person"></i>
+            <div class="item item-divider">{{card.name}}</div><i style="font-size: 240px" class="ion-person"></i>
             <!--img(ng-src='{{card.image}}')-->
-            <!--.no-text(ng-style='rightTextOpacity') NOPE-->
+            <div ng-style="leftTextOpacity" class="yes-text">LIKE</div>
+            <div ng-style="rightTextOpacity" class="no-text">NOPE</div>
           </div>
         </td-card>
       </td-cards>
@@ -24,6 +25,6 @@
         .item.item-divider Friends Name
         i.ion-person(style='font-size: 240px')
     -->
-    <div class="buttonContainer"><img src="assets/unfollow_btn-01.png" class="unfollow"><img src="assets/reconnect_btn-01.png" class="reconnect"></div>
+    <div class="buttonContainer"><img src="assets/unfollow_btn-01.png" ng-click="cardSwipedLeft()" class="unfollow"><img src="assets/reconnect_btn-01.png" ng-click="cardSwipedRight()" class="reconnect"></div>
   </ion-pane>
 </ion-view>

@@ -11,9 +11,10 @@
     }, function(data){
       console.log(data);
     });
-    // OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
-    // console.log('Check the user id', $rootScope.myFacebookId);
+
     console.log('SWIPE CTRL');
+
+    /*
     var cardTypes = [
       {image: 'https://pbs.twimg.com/profile_images/479740132258361344/KaYdH9hE.jpeg'},
       {image: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'},
@@ -21,6 +22,11 @@
     ];
 
     $scope.cards = Array.prototype.slice.call(cardTypes, 0);
+    */
+
+    console.log('$scope.cards ', $scope.cards);
+
+    var cardTypes;
 
     $scope.cardDestroyed = function(index){
       $scope.cards.splice(index, 1);
@@ -36,6 +42,7 @@
       // friendData.data = [{name:, id:}]
       // console.log('FB FRIEND DATA', friendData);
       $scope.friends = friendData.data.data;
+
       $http.get('http://friendswipe-php.herokuapp.com?swipes&sender=' + $rootScope.myFacebookId).then(parseSwipes, swipesFail);
       function parseSwipes(sData){
         console.log('parseSwipes data', sData.data);
@@ -48,7 +55,14 @@
       function swipesFail(data){
         console.log('shit went bad in parseFriends');
       }
+
+      cardTypes = $scope.friends;
+      $scope.cards = Array.prototype.slice.call(cardTypes, 0);
+      console.log('$scope.cards ', $scope.cards);
+      console.log('$scope.friends', $scope.friends);
+
     }
+
     function errorHandler(a, b, c, d){
       console.log('shit went south', a, b, c, d);
     }
@@ -56,13 +70,14 @@
 
   .controller('CardCtrl', function($scope, TDCardDelegate){
     console.log('CARD CTRL');
+
     $scope.cardSwipedLeft = function(index){
       console.log('LEFT SWIPE');
-      $scope.addCard();
+      //$scope.addCard();
     };
     $scope.cardSwipedRight = function(index){
       console.log('RIGHT SWIPE');
-      $scope.addCard();
+      //$scope.addCard();
     };
   })
 
