@@ -1,8 +1,13 @@
 (function(){
   'use strict';
-  angular.module('friendswipe', ['ionic', 'openfb', 'friendswipe.controllers', 'friendswipe.services'])
+  angular.module('friendswipe', ['ionic', 'openfb', 'friendswipe.controllers', 'friendswipe.services', 'ionic.contrib.ui.tinderCards'])
+
+  .config(function($stateProvider, $urlRouterProvider){
+
+  })
 
   .run(function($rootScope, $state, $ionicPlatform, $window, OpenFB){
+    /*
     OpenFB.init('800505460012061');
 
     $ionicPlatform.ready(function(){
@@ -16,7 +21,7 @@
 
     $rootScope.$on('$stateChangeStart', function(event, toState){
       if(toState.name !== 'login' && toState.name !== 'logout' && !$window.sessionStorage.fbtoken){
-        $state.go('menu');
+        $state.go('login');
           //change to login
           event.preventDefault();
         }
@@ -24,9 +29,20 @@
 
     $rootScope.$on('OAuthException', function(){
           //change to login
-      $state.go('menu');
+      $state.go('login');
     });
+    */
 
+  })
+  .directive('noScroll', function($document){
+    return{
+      restrict: 'A',
+      link: function($scope, $element, $attr){
+        $document.on('touchmove', function(e){
+          e.preventDefault();
+        });
+      }
+    };
   })
 
   .config(function($stateProvider, $urlRouterProvider){
