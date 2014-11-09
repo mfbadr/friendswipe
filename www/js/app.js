@@ -7,8 +7,8 @@
   })
 
   .run(function($rootScope, $state, $ionicPlatform, $window, OpenFB){
-    /*
-    OpenFB.init('800505460012061');
+
+    OpenFB.init('1569715146577666');
 
     $ionicPlatform.ready(function(){
       if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -31,8 +31,6 @@
           //change to login
       $state.go('login');
     });
-    */
-
   })
   .directive('noScroll', function($document){
     return{
