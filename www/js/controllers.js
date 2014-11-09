@@ -3,12 +3,10 @@
 
   angular.module('friendswipe.controllers', ['openfb'])
 
-  .controller('SwipeCtrl', function($scope, $rootScope, TDCardDelegate, OpenFB, SwipeApi){
+  .controller('SwipeCtrl', function($scope, $rootScope, $http, TDCardDelegate, OpenFB, SwipeApi){
 
     OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
-
-    parseFriends({test:'test'});
-
+    // console.log('Check the user id', $rootScope.myFacebookId);
     console.log('SWIPE CTRL');
     var cardTypes = [
       {image: 'https://pbs.twimg.com/profile_images/479740132258361344/KaYdH9hE.jpeg'},
@@ -30,9 +28,15 @@
 
     function parseFriends(friendData){
       // friendData.data = [{name:, id:}]
-      console.log('FB FRIEND DATA', friendData);
+      // console.log('FB FRIEND DATA', friendData);
       $scope.friends = friendData.data.data;
-      console.log('$scope.friends', $scope.friends);
+      $http.get('http://friendswipe-php.herokuapp.com?swipes&sender=' + $rootScope.myFacebookId).then(parseSwipes, swipesFail);
+      function parseSwipes(data){
+        console.log('parseSwipes data', data.data);
+      }
+      function swipesFail(data){
+        console.log('shit went bad in parseFriends');
+      }
     }
     function errorHandler(a, b, c, d){
       console.log('shit went south', a, b, c, d);
@@ -55,7 +59,15 @@
   .controller('MatchCtrl', function($scope){
   })
 
-  .controller('MenuCtrl', function($scope){
+  .controller('MenuCtrl', function($scope, $rootScope, OpenFB){
+    OpenFB.api({path:'/me'}).then(success, errorHandle);
+    function success(data){
+      console.log(data.data.id);
+      $rootScope.myFacebookId = data.data.id;
+    }
+    function errorHandle(data){
+      console.log(data);
+    }
   })
 
   .controller('AppCtrl', function($scope, $state, OpenFB){
