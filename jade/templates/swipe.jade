@@ -1,13 +1,24 @@
 ion-view(title='Swipe')
-  ion-header-bar(align-title='left').bar-stable
-    h1.title: a(href='#/menu') FriendSwipe
-    .buttons
-      a.logo(href='#/match'): img(src='assets/logo_background.png')
-  ion-content(ng-controller='SwipeCtrl').padding
+  ion-pane(ng-controller='SwipeCtrl')
+    ion-header-bar(align-title='left').bar-stable
+      h1.title: a(href='#/menu') FriendSwipe
+      .buttons
+        a.logo(href='#/match'): img(src='assets/logo_background.png')
+    //ion-content.padding
     .container
-      .card.friend
-        .item.item-divider Friends Name
-        i.ion-person(style='font-size: 240px')
+      td-cards
+        td-card.friend(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-swipe-left='cardSwipedLeft($index)', on-swipe-right='cardSwipedRight($index)', on-partial-swipe='cardPartialSwipe(amt)', class='card-{{card.index}}', ng-controller='CardCtrl')
+          .image
+            //.yes-text(ng-style='leftTextOpacity') LIKE
+            .item.item-divider Friends Name
+            i.ion-person(style='font-size: 240px')
+            //img(ng-src='{{card.image}}')
+            //.no-text(ng-style='rightTextOpacity') NOPE
+    //      
+      td-cards.container
+        td-card.card.friend(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-swipe-left='cardSwipedLeft($index)', on-swipe-right='cardSwipedRight($index)', on-partial-swipe='cardPartialSwipe(amt)', class='card-{{card.index}}', ng-controller='CardCtrl')
+          .item.item-divider Friends Name
+          i.ion-person(style='font-size: 240px')
     .buttonContainer
       img.unfollow(src='assets/unfollow_btn-01.png')
       img.reconnect(src='assets/reconnect_btn-01.png')
