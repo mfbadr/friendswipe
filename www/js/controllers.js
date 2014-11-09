@@ -4,8 +4,14 @@
   angular.module('friendswipe.controllers', ['openfb'])
 
   .controller('SwipeCtrl', function($scope, $rootScope, $http, TDCardDelegate, OpenFB, SwipeApi){
-
-    OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
+    OpenFB.api({path:'/me'}).then(function(data){
+      console.log(data.data.id);
+      $rootScope.myFacebookId = data.data.id;
+      OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
+    }, function(data){
+      console.log(data);
+    });
+    // OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
     // console.log('Check the user id', $rootScope.myFacebookId);
     console.log('SWIPE CTRL');
     var cardTypes = [
@@ -31,8 +37,13 @@
       // console.log('FB FRIEND DATA', friendData);
       $scope.friends = friendData.data.data;
       $http.get('http://friendswipe-php.herokuapp.com?swipes&sender=' + $rootScope.myFacebookId).then(parseSwipes, swipesFail);
-      function parseSwipes(data){
-        console.log('parseSwipes data', data.data);
+      function parseSwipes(sData){
+        console.log('parseSwipes data', sData.data);
+        var recipientIds = sData.data.map(function(obj){return obj.recipient;});
+        console.log('ids array', recipientIds);
+        console.log('unfiltered $scope.friends', $scope.friends);
+        $scope.friends = _.reject($scope.friends, function(fObj){return recipientIds.indexOf(parseInt(fObj.id)) !== -1;});
+        console.log('filtered $scope.friends', $scope.friends);
       }
       function swipesFail(data){
         console.log('shit went bad in parseFriends');
@@ -60,14 +71,12 @@
   })
 
   .controller('MenuCtrl', function($scope, $rootScope, OpenFB){
-    OpenFB.api({path:'/me'}).then(success, errorHandle);
-    function success(data){
+    OpenFB.api({path:'/me'}).then(function(data){
       console.log(data.data.id);
       $rootScope.myFacebookId = data.data.id;
-    }
-    function errorHandle(data){
+    }, function(data){
       console.log(data);
-    }
+    });
   })
 
   .controller('AppCtrl', function($scope, $state, OpenFB){
