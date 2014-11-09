@@ -1,5 +1,12 @@
 #Last build type
-#Sat, 08 Nov 2014 22:46:30 -0600
+#Sun, 09 Nov 2014 10:54:21 -0600
+#Sat, 08 Nov 2014 16:01:56 -0600
+#Sun, 09 Nov 2014 10:45:20 -0600
+<<<<<<<=Updated upstream
+#Sat, 08 Nov 2014 22:29:43 -0600
+=\=\=\=\=\=\=
+#Sat, 08 Nov 2014 22:28:35 -0600
+>>>>>>>=swipe
 
 build.last.target=debug
 
