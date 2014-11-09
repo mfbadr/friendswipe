@@ -11,8 +11,8 @@
         <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" ng-controller="CardCtrl" class="friend card-{{card.index}}">
           <div class="image">
             <!--.yes-text(ng-style='leftTextOpacity') LIKE-->
-            <div class="item item-divider">Friends Name</div>
-            <!--i.ion-person(style='font-size: 240px')--><img ng-src="{{card.image}}">
+            <div class="item item-divider">{{card.name}}</div><i style="font-size: 240px" class="ion-person"></i>
+            <!--img(ng-src='{{card.image}}')-->
             <div ng-style="leftTextOpacity" class="yes-text">LIKE</div>
             <div ng-style="rightTextOpacity" class="no-text">NOPE</div>
           </div>

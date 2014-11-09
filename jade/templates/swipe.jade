@@ -10,9 +10,9 @@ ion-view(title='Swipe')
         td-card.friend(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-swipe-left='cardSwipedLeft($index)', on-swipe-right='cardSwipedRight($index)', on-partial-swipe='cardPartialSwipe(amt)', class='card-{{card.index}}', ng-controller='CardCtrl')
           .image
             //.yes-text(ng-style='leftTextOpacity') LIKE
-            .item.item-divider Friends Name
-            //i.ion-person(style='font-size: 240px')
-            img(ng-src='{{card.image}}')
+            .item.item-divider {{card.name}}
+            i.ion-person(style='font-size: 240px')
+            //img(ng-src='{{card.image}}')
             .yes-text(ng-style='leftTextOpacity') LIKE
             .no-text(ng-style='rightTextOpacity') NOPE
     //      
