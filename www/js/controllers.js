@@ -3,12 +3,14 @@
 
   angular.module('friendswipe.controllers', ['openfb'])
 
-  .controller('SwipeCtrl', function($scope, $rootScope, TDCardDelegate, OpenFB, SwipeApi){
-
-
-    OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
-    //parseFriends({test:'test'});
-
+  .controller('SwipeCtrl', function($scope, $rootScope, $http, TDCardDelegate, OpenFB, SwipeApi){
+    OpenFB.api({path:'/me'}).then(function(data){
+      console.log(data.data.id);
+      $rootScope.myFacebookId = data.data.id;
+      OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
+    }, function(data){
+      console.log(data);
+    });
 
     console.log('SWIPE CTRL');
 
@@ -38,12 +40,27 @@
 
     function parseFriends(friendData){
       // friendData.data = [{name:, id:}]
-      console.log('FB FRIEND DATA', friendData);
+      // console.log('FB FRIEND DATA', friendData);
       $scope.friends = friendData.data.data;
+
+      $http.get('http://friendswipe-php.herokuapp.com?swipes&sender=' + $rootScope.myFacebookId).then(parseSwipes, swipesFail);
+      function parseSwipes(sData){
+        console.log('parseSwipes data', sData.data);
+        var recipientIds = sData.data.map(function(obj){return obj.recipient;});
+        console.log('ids array', recipientIds);
+        console.log('unfiltered $scope.friends', $scope.friends);
+        $scope.friends = _.reject($scope.friends, function(fObj){return recipientIds.indexOf(parseInt(fObj.id)) !== -1;});
+        console.log('filtered $scope.friends', $scope.friends);
+      }
+      function swipesFail(data){
+        console.log('shit went bad in parseFriends');
+      }
+
       cardTypes = $scope.friends;
       $scope.cards = Array.prototype.slice.call(cardTypes, 0);
       console.log('$scope.cards ', $scope.cards);
       console.log('$scope.friends', $scope.friends);
+
     }
 
     function errorHandler(a, b, c, d){
@@ -68,7 +85,13 @@
   .controller('MatchCtrl', function($scope){
   })
 
-  .controller('MenuCtrl', function($scope){
+  .controller('MenuCtrl', function($scope, $rootScope, OpenFB){
+    OpenFB.api({path:'/me'}).then(function(data){
+      console.log(data.data.id);
+      $rootScope.myFacebookId = data.data.id;
+    }, function(data){
+      console.log(data);
+    });
   })
 
   .controller('AppCtrl', function($scope, $state, OpenFB){
