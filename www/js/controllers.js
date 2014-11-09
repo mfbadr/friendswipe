@@ -91,16 +91,33 @@
       console.log('LEFT SWIPE');
       console.log('this is the index', index);
       console.log('HTTP LOG', {swipe: true, choice: 'ignore', sender: parseInt($rootScope.myFacebookId), recipient:1});
-      $http.post('http://friendswipe-php.herokuapp.com/?swipe&choice=ignore&sender='+$rootScope.myFacebookId+'&recipient='+$rootScope.fbFriendsArray[index].id).then(function(data){console.log(data);});
+      $http.post('http://friendswipe-php.herokuapp.com/?swipe&choice=ignore&sender='+$rootScope.myFacebookId+'&recipient='+$rootScope.fbFriendsArray[index].id).then(function(data){
+
+        console.log(data);});
 
       //$scope.addCard();
     };
 
     $scope.cardSwipedRight = function(index){
       console.log('RIGHT SWIPE');
-      $http.post('http://friendswipe-php.herokuapp.com/?swipe&choice=reconnect&sender='+$rootScope.myFacebookId+'&recipient='+$rootScope.fbFriendsArray[index].id).then(function(data){console.log(data);});
-    };
+      console.log('>>>>>>>FBFRIENDSARRY', $rootScope.fbFriendsArray);
+      //$http.post('http://friendswipe-php.herokuapp.com/?swipe&choice=reconnect&sender='+$rootScope.myFacebookId+'&recipient='+$rootScope.fbFriendsArray[index].id).then(function(data){
+      $http.post('http://friendswipe-php.herokuapp.com/?swipe&choice=reconnect&sender='+$rootScope.myFacebookId+'&recipient='+$rootScope.fbFriendsArray[index].id).then(function(data){
 
+        console.log(data);
+      /*
+
+        $http.get('http://friendswipe-php.herokuapp.com?matches&sender=' + $rootScope.myFacebookId).then(parseSwipes, swipesFail);
+
+        function parseSwipes(sData){
+          console.log('parseMATCHES data', sData.data);
+        }
+        function swipesFail(data){
+          console.log('shit went bad in parseFriends');
+        }
+      */
+      });
+    };
   })
 
 
