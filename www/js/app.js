@@ -3,6 +3,7 @@
   angular.module('friendswipe', ['ionic', 'openfb', 'friendswipe.controllers', 'friendswipe.services'])
 
   .run(function($rootScope, $state, $ionicPlatform, $window, OpenFB){
+
     OpenFB.init('1569715146577666');
 
     $ionicPlatform.ready(function(){
@@ -24,7 +25,6 @@
     $rootScope.$on('OAuthException', function(){
       $state.go('login');
     });
-
   })
 
   .config(function($stateProvider, $urlRouterProvider){

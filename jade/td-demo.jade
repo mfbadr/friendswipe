@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+    title Ionic Seed App
+    // ionic css
+    link(href='../../ionic/dist/css/ionic.css', rel='stylesheet')
+    link(rel='stylesheet', href='app.css')
+    // angularjs scripts
+    script(src='../../ionic/dist/js/ionic.bundle.js')
+    // cordova script
+    script(src='cordova.js')
+    script(src='app.js')
+    script(src='../../collide/collide.js')
+    script(src='../ionic.tdcards.js')
+  //
+    'starter' is the name of this angular module (js/app.js)
+  body(ng-app='starter', no-scroll='')
+    ion-pane(ng-controller='CardsCtrl')
+      ion-header-bar.bar-default
+        h1.title TD Cards
+      td-cards
+        td-card(ng-repeat='card in cards', on-destroy='cardDestroyed($index)', on-swipe-left='cardSwipedLeft($index)', on-swipe-right='cardSwipedRight($index)', on-partial-swipe='cardPartialSwipe(amt)', class='card-{{card.index}}', ng-controller='CardCtrl')
+          .image
+            .yes-text(ng-style='leftTextOpacity') LIKE
+            img(ng-src='{{card.image}}')
+            .no-text(ng-style='rightTextOpacity') NOPE
