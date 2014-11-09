@@ -1,9 +1,13 @@
 (function(){
   'use strict';
 
-  angular.module('friendswipe.controllers', [])
+  angular.module('friendswipe.controllers', ['openfb'])
 
-  .controller('SwipeCtrl', function($scope, TDCardDelegate){
+  .controller('SwipeCtrl', function($scope, $rootScope, TDCardDelegate, OpenFB, SwipeApi){
+
+    OpenFB.api({path:'/me/friends'}).then(parseFriends, errorHandler);
+
+    parseFriends({test:'test'});
 
     console.log('SWIPE CTRL');
     var cardTypes = [
@@ -24,6 +28,15 @@
       $scope.cards.push(angular.extend({}, newCard));
     };
 
+    function parseFriends(friendData){
+      // friendData.data = [{name:, id:}]
+      console.log('FB FRIEND DATA', friendData);
+      $scope.friends = friendData.data.data;
+      console.log('$scope.friends', $scope.friends);
+    }
+    function errorHandler(a, b, c, d){
+      console.log('shit went south', a, b, c, d);
+    }
   })
 
   .controller('CardCtrl', function($scope, TDCardDelegate){
@@ -66,7 +79,7 @@
   .controller('LoginCtrl', function($scope, $location, OpenFB){
 
     $scope.facebookLogin = function(){
-      OpenFB.login('email,read_stream,publish_stream').then(
+      OpenFB.login('public_profile,email,user_photos,read_stream,user_friends').then(
         function(){
           $location.path('/menu');
         },

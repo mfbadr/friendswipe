@@ -28,7 +28,7 @@
     });
 
     $rootScope.$on('OAuthException', function(){
-          //change to login
+      //change to login
       $state.go('login');
     });
   })

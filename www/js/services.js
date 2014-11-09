@@ -8,8 +8,14 @@
     return o;
   })
 
-  .factory('SwipeApi', function(OpenFB){
-    var o = {};
+  .factory('SwipeApi', function($http, $rootScope, OpenFB){
+    var o = {
+      getSwipes: getSwipes
+    };
+
+    function getSwipes(){
+      // do stuff;
+    }
 
     return o;
   });
