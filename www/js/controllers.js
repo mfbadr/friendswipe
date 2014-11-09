@@ -28,6 +28,7 @@
 
   .controller('CardCtrl', function($scope, TDCardDelegate){
     console.log('CARD CTRL');
+
     $scope.cardSwipedLeft = function(index){
       console.log('LEFT SWIPE');
       $scope.addCard();
