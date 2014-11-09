@@ -5,6 +5,11 @@
     <div class="buttons"><a href="#/swipe" class="logo"><img src="assets/logo_background.png"></a></div>
   </ion-header-bar>
   <ion-content ng-controller="MatchCtrl" class="padding">
-    <ion-list></ion-list>
+    <ion-list>
+      <ion-item ng-repeat="match in matches">
+         
+        {{match.name}}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

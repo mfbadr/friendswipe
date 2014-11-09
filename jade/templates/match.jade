@@ -5,3 +5,5 @@ ion-view(title='Matches')
       a.logo(href='#/swipe'): img(src='assets/logo_background.png')
   ion-content(ng-controller='MatchCtrl').padding
     ion-list
+      ion-item(ng-repeat='match in matches') 
+        {{match.name}}

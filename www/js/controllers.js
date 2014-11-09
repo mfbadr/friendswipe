@@ -65,7 +65,13 @@
   })
 
 
-  .controller('MatchCtrl', function($scope){
+  .controller('MatchCtrl', function($scope, $ionicListDelegate){
+    $scope.matches = [
+      {'name': 'Bob'},
+      {'name': 'alice'},
+      {'name': 'suzy'},
+      {'name': 'joe'}
+    ];
   })
 
   .controller('MenuCtrl', function($scope){
