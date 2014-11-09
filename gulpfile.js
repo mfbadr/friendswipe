@@ -13,7 +13,7 @@ var jscs      = require('gulp-jscs');
 var paths = {
   sass: ['./scss/**/*.scss'],
   jade: ['./jade/**/*.jade'],
-  code: ['./www/js/**/*.js', '!./www/js/vendor/*.js']
+  code: ['./www/js/**/*.js', '!./www/js/vendor/**/*.js']
 };
 
 gulp.task('default', ['sass', 'jade', 'lint', 'jscs', 'watch']);
