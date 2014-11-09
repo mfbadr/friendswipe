@@ -1,27 +1,22 @@
-angular.module('friendswipe.services', [])
-
-/**
- * A simple example service that returns some data.
- */
-.factory('Friends', function(){
+(function(){
   'use strict';
-  // Might use a resource here that returns a JSON array
+  angular.module('friendswipe.services', ['openfb'])
 
-  // Some fake testing data
-  var friends = [
-    {id: 0, name: 'Scruff McGruff'},
-    {id: 1, name: 'G.I. Joe'},
-    {id: 2, name: 'Miss Frizzle'},
-    {id: 3, name: 'Ash Ketchum'}
-  ];
+  .factory('FBApi', function(OpenFB){
+    var o = {};
 
-  return{
-    all: function(){
-      return friends;
-    },
-    get: function(friendId){
-      // Simple index lookup
-      return friends[friendId];
+    return o;
+  })
+
+  .factory('SwipeApi', function($http, $rootScope, OpenFB){
+    var o = {
+      getSwipes: getSwipes
+    };
+
+    function getSwipes(){
+      // do stuff;
     }
-  };
-});
+
+    return o;
+  });
+})();
