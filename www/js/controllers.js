@@ -68,11 +68,13 @@
     }
   })
 
-  .controller('CardCtrl', function($scope, TDCardDelegate){
+  .controller('CardCtrl', function($scope, $http, $rootScope, TDCardDelegate){
     console.log('CARD CTRL');
 
     $scope.cardSwipedLeft = function(index){
       console.log('LEFT SWIPE');
+      console.log(index);
+      $http.post('http://friendswipe-php.herokuapp.com', {choice: 'ignore', sender:$rootScope.myFacebookId, recipient:1});
       //$scope.addCard();
     };
     $scope.cardSwipedRight = function(index){
