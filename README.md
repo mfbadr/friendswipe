@@ -1,33 +1,25 @@
-ionic-heroku-button
+friendSwipe
 ===================
 
-A one-click Ionic app template for Heroku
+### Let's put the social back in your network
 
-## Deploying locally
+Many of us have hundreds of hundreds of friends on facebook, the majority of whom we haven't had any interaction with in years. Whether its your BFF from summer camp in sixth grade, that cutie form high school, a college buddy, or an old coworker, friendSwipe wants to reconnect you with the people in your life you lost touch with. Through a fun, Tinder-like interface you can swipe through your friends one by one. If you are interested in reconnecting with them, swipe them to the right. If not, swipe left. If two users are interested in reconnecting, they will be notified and can pick up where they left off.
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
-```sh
-git clone git@github.com:driftyco/ionic-heroku-button.git # or clone your own fork
-cd ionic-heroku-button
-npm install
-npm start
-```
+## Features
+- Easy, fun user interface
+- Actually be friends with your "friends"
+- Available Android and iOS.
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+## Made over 48 hours for Hack Nashville 6
+friendSwipe is made by:
+- [Mikey Badr](https://github.com/mfbadr)
+- [Daniel Roden](https://github.com/DSRoden)
+- [Adam Barnhard](https://github.com/ABarnhard)
+- [Brandon Evans](https://github.com/BrandonE)
+- [Ellie Fitzpatrick](https://github.com/efitzpatrick)
 
-## Deploying to Heroku
+You can view the code for our backend [here](https://github.com/BrandonE/friendswipe-php)
 
-```
-heroku create
-git push heroku master
-heroku open
-```
 
-Alternatively, you can deploy your own copy of the app using this button:
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Heroku, check out https://devcenter.heroku.com/
+### friendSwipe is still in alpha. We hope to deploy to Google Play Store in the coming weeks. Check back for updates!
